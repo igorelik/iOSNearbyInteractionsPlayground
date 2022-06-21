@@ -1,19 +1,15 @@
-//
-//  ContentView.swift
-//  TestNearby
-//
-//  Created by Igor Gorelik on 21/6/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ViewNearbyViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .leading) {
+            Text("Devices")
+            List(viewModel.devicesAvailable, id: \.self){ device in
+                Text(device)
+            }
+            Spacer()
         }
     }
 }

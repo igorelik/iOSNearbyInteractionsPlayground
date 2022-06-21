@@ -11,6 +11,10 @@
 		42862ADF28613C5F00F6EFD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862ADE28613C5F00F6EFD0 /* ContentView.swift */; };
 		42862AE128613C6000F6EFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42862AE028613C6000F6EFD0 /* Assets.xcassets */; };
 		42862AE428613C6000F6EFD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42862AE328613C6000F6EFD0 /* Preview Assets.xcassets */; };
+		42862AEB28613C8C00F6EFD0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862AEA28613C8C00F6EFD0 /* SessionManager.swift */; };
+		42862AED28614D7200F6EFD0 /* MultipeerConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862AEC28614D7200F6EFD0 /* MultipeerConnectivityManager.swift */; };
+		42862AF02861717600F6EFD0 /* ViewNearbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862AEF2861717600F6EFD0 /* ViewNearbyViewModel.swift */; };
+		42862AF2286173E000F6EFD0 /* InteractionDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862AF1286173E000F6EFD0 /* InteractionDataProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		42862ADE28613C5F00F6EFD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42862AE028613C6000F6EFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42862AE328613C6000F6EFD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		42862AEA28613C8C00F6EFD0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		42862AEC28614D7200F6EFD0 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
+		42862AEE28616D9B00F6EFD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		42862AEF2861717600F6EFD0 /* ViewNearbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNearbyViewModel.swift; sourceTree = "<group>"; };
+		42862AF1286173E000F6EFD0 /* InteractionDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionDataProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +60,15 @@
 		42862ADB28613C5F00F6EFD0 /* TestNearby */ = {
 			isa = PBXGroup;
 			children = (
+				42862AEE28616D9B00F6EFD0 /* Info.plist */,
 				42862ADC28613C5F00F6EFD0 /* TestNearbyApp.swift */,
 				42862ADE28613C5F00F6EFD0 /* ContentView.swift */,
 				42862AE028613C6000F6EFD0 /* Assets.xcassets */,
 				42862AE228613C6000F6EFD0 /* Preview Content */,
+				42862AEA28613C8C00F6EFD0 /* SessionManager.swift */,
+				42862AEC28614D7200F6EFD0 /* MultipeerConnectivityManager.swift */,
+				42862AEF2861717600F6EFD0 /* ViewNearbyViewModel.swift */,
+				42862AF1286173E000F6EFD0 /* InteractionDataProtocol.swift */,
 			);
 			path = TestNearby;
 			sourceTree = "<group>";
@@ -139,6 +153,10 @@
 			files = (
 				42862ADF28613C5F00F6EFD0 /* ContentView.swift in Sources */,
 				42862ADD28613C5F00F6EFD0 /* TestNearbyApp.swift in Sources */,
+				42862AED28614D7200F6EFD0 /* MultipeerConnectivityManager.swift in Sources */,
+				42862AF02861717600F6EFD0 /* ViewNearbyViewModel.swift in Sources */,
+				42862AF2286173E000F6EFD0 /* InteractionDataProtocol.swift in Sources */,
+				42862AEB28613C8C00F6EFD0 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +288,14 @@
 				DEVELOPMENT_TEAM = TQDS6MDQ3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestNearby/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Find things to connect to";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +320,14 @@
 				DEVELOPMENT_TEAM = TQDS6MDQ3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestNearby/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Find things to connect to";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
