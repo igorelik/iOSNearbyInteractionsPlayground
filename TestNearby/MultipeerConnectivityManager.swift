@@ -2,8 +2,8 @@ import MultipeerConnectivity
 
 protocol MultipeerConnectivityManagerDelegate: AnyObject {
     func connectedDevicesChanged(devices: [String])
-    func receivedDiscoveryToken(data: Data)
-    func connectedToDevice()
+    func receivedDiscoveryToken(data: Data, from peerName: String)
+    func connectedToDevice(_ device: String)
 }
 
 protocol MultipeerConnectivityManagerInterface {
@@ -74,6 +74,8 @@ extension MultipeerConnectivityManager: MCNearbyServiceBrowserDelegate {
         NSLog("%@", "foundPeer: \(peerID)")
         NSLog("%@", "invitePeer: \(peerID)")
         browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
+        
+        
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) { }
@@ -82,15 +84,16 @@ extension MultipeerConnectivityManager: MCNearbyServiceBrowserDelegate {
 extension MultipeerConnectivityManager: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         if state == .connected {
-            delegate?.connectedToDevice()
+            delegate?.connectedToDevice(peerID.displayName)
         }
         NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
-        delegate?.connectedDevicesChanged(devices: session.connectedPeers.map{$0.displayName})
+        delegate?.connectedDevicesChanged(devices: session.connectedPeers.map{"\($0.displayName)"})
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data) from \(peerID.displayName)")
-        delegate?.receivedDiscoveryToken(data: data)
+        delegate?.receivedDiscoveryToken(data: data, from: peerID.displayName)
+        session.connectPeer(peerID, withNearbyConnectionData: data)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) { }

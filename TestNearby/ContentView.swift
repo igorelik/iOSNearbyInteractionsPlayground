@@ -9,7 +9,12 @@ struct ContentView: View {
             List(viewModel.devicesAvailable, id: \.self){ device in
                 Text(device)
             }
-            Spacer()
+            Text("Logs")
+            List(viewModel.logStream, id: \.self){ device in
+                Text(device)
+                    .font(.footnote)
+            }
+
         }
     }
 }

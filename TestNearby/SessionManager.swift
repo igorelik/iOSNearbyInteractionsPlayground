@@ -44,12 +44,12 @@ extension SessionManager: MultipeerConnectivityManagerDelegate {
         }
     }
     
-    func connectedToDevice() {
-        print("connected to device")
+    func connectedToDevice(_ device: String) {
+        self.dataExchange?.addLogEntry("connected to \(device)")
         MultipeerConnectivityManager.instance.shareDiscoveryToken(data: discoveryTokenData)
     }
     
-    func receivedDiscoveryToken(data: Data) {
+    func receivedDiscoveryToken(data: Data, from peerName: String) {
         print("data received")
         guard let token = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NIDiscoveryToken.self, from: data) else {
             fatalError("Unexpectedly failed to encode discovery token.")
@@ -63,10 +63,23 @@ extension SessionManager: MultipeerConnectivityManagerDelegate {
 extension SessionManager: NISessionDelegate {
     func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject]) {
         delegate?.didUpdateNearbyObjects(objects: nearbyObjects)
+        self.dataExchange?.addLogEntry("session didUpdate \(nearbyObjects.count) objects")
     }
     
-    func session(_ session: NISession, didRemove nearbyObjects: [NINearbyObject], reason: NINearbyObject.RemovalReason) {}
-    func sessionWasSuspended(_ session: NISession) {}
-    func sessionSuspensionEnded(_ session: NISession) {}
-    func session(_ session: NISession, didInvalidateWith error: Error) {}
+    func session(_ session: NISession, didRemove nearbyObjects: [NINearbyObject], reason: NINearbyObject.RemovalReason) {
+        self.dataExchange?.addLogEntry("session didRemove \(nearbyObjects.count) objects because \(reason)")
+
+    }
+    func sessionWasSuspended(_ session: NISession) {
+        self.dataExchange?.addLogEntry("session suspended \(session.debugDescription)")
+
+    }
+    func sessionSuspensionEnded(_ session: NISession) {
+        self.dataExchange?.addLogEntry("session suspendsion ended \(session.debugDescription)")
+
+    }
+    func session(_ session: NISession, didInvalidateWith error: Error) {
+        self.dataExchange?.addLogEntry("session didInvalidateWith \(error.localizedDescription)")
+
+    }
 }
