@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  BonjourCIC
-//
-//  Created by Igor Gorelik on 26/6/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {

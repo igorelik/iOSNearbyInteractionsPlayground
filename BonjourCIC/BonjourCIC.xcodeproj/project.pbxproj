@@ -11,6 +11,18 @@
 		42862B0228682C6B00F6EFD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862B0128682C6B00F6EFD0 /* ContentView.swift */; };
 		42862B0428682C6B00F6EFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42862B0328682C6B00F6EFD0 /* Assets.xcassets */; };
 		42862B0828682C6B00F6EFD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42862B0728682C6B00F6EFD0 /* Preview Assets.xcassets */; };
+		42862B1028682FEA00F6EFD0 /* PeerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862B0F28682FEA00F6EFD0 /* PeerBrowser.swift */; };
+		42862B122868305000F6EFD0 /* PeerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862B112868305000F6EFD0 /* PeerListener.swift */; };
+		42862B14286830F200F6EFD0 /* PeerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862B13286830F200F6EFD0 /* PeerConnection.swift */; };
+		42862B162868312200F6EFD0 /* NWParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862B152868312200F6EFD0 /* NWParameters.swift */; };
+		42862B182868326800F6EFD0 /* ApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42862B172868326800F6EFD0 /* ApplicationProtocol.swift */; };
+		428FD9E7286A73BD0062670C /* ModeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9E6286A73BD0062670C /* ModeSelectionView.swift */; };
+		428FD9EB286A77390062670C /* ControllerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EA286A77390062670C /* ControllerMainView.swift */; };
+		428FD9ED286A775F0062670C /* PresentationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EC286A775F0062670C /* PresentationMainView.swift */; };
+		428FD9EF286A82C20062670C /* PresentationMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EE286A82C20062670C /* PresentationMainViewModel.swift */; };
+		428FD9F1286A87750062670C /* PresentorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F0286A87750062670C /* PresentorService.swift */; };
+		428FD9F3286A93E80062670C /* PresentorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F2286A93E80062670C /* PresentorProtocol.swift */; };
+		428FD9F5286AA1BF0062670C /* ControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F4286AA1BF0062670C /* ControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +32,19 @@
 		42862B0328682C6B00F6EFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42862B0528682C6B00F6EFD0 /* BonjourCIC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BonjourCIC.entitlements; sourceTree = "<group>"; };
 		42862B0728682C6B00F6EFD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		42862B0F28682FEA00F6EFD0 /* PeerBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerBrowser.swift; sourceTree = "<group>"; };
+		42862B112868305000F6EFD0 /* PeerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerListener.swift; sourceTree = "<group>"; };
+		42862B13286830F200F6EFD0 /* PeerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnection.swift; sourceTree = "<group>"; };
+		42862B152868312200F6EFD0 /* NWParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWParameters.swift; sourceTree = "<group>"; };
+		42862B172868326800F6EFD0 /* ApplicationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationProtocol.swift; sourceTree = "<group>"; };
+		42862B192868351300F6EFD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		428FD9E6286A73BD0062670C /* ModeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectionView.swift; sourceTree = "<group>"; };
+		428FD9EA286A77390062670C /* ControllerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMainView.swift; sourceTree = "<group>"; };
+		428FD9EC286A775F0062670C /* PresentationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationMainView.swift; sourceTree = "<group>"; };
+		428FD9EE286A82C20062670C /* PresentationMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationMainViewModel.swift; sourceTree = "<group>"; };
+		428FD9F0286A87750062670C /* PresentorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentorService.swift; sourceTree = "<group>"; };
+		428FD9F2286A93E80062670C /* PresentorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentorProtocol.swift; sourceTree = "<group>"; };
+		428FD9F4286AA1BF0062670C /* ControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +77,16 @@
 		42862AFE28682C6B00F6EFD0 /* BonjourCIC */ = {
 			isa = PBXGroup;
 			children = (
+				428FD9E9286A76EF0062670C /* ControllerUI */,
+				428FD9E8286A76D40062670C /* PresentationUI */,
+				42862B192868351300F6EFD0 /* Info.plist */,
+				42862B0E28682F5100F6EFD0 /* Networking */,
 				42862AFF28682C6B00F6EFD0 /* BonjourCICApp.swift */,
 				42862B0128682C6B00F6EFD0 /* ContentView.swift */,
 				42862B0328682C6B00F6EFD0 /* Assets.xcassets */,
 				42862B0528682C6B00F6EFD0 /* BonjourCIC.entitlements */,
 				42862B0628682C6B00F6EFD0 /* Preview Content */,
+				428FD9E6286A73BD0062670C /* ModeSelectionView.swift */,
 			);
 			path = BonjourCIC;
 			sourceTree = "<group>";
@@ -67,6 +97,38 @@
 				42862B0728682C6B00F6EFD0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		42862B0E28682F5100F6EFD0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				42862B0F28682FEA00F6EFD0 /* PeerBrowser.swift */,
+				42862B112868305000F6EFD0 /* PeerListener.swift */,
+				42862B13286830F200F6EFD0 /* PeerConnection.swift */,
+				42862B152868312200F6EFD0 /* NWParameters.swift */,
+				42862B172868326800F6EFD0 /* ApplicationProtocol.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		428FD9E8286A76D40062670C /* PresentationUI */ = {
+			isa = PBXGroup;
+			children = (
+				428FD9EC286A775F0062670C /* PresentationMainView.swift */,
+				428FD9EE286A82C20062670C /* PresentationMainViewModel.swift */,
+				428FD9F0286A87750062670C /* PresentorService.swift */,
+				428FD9F2286A93E80062670C /* PresentorProtocol.swift */,
+				428FD9F4286AA1BF0062670C /* ControllerProtocol.swift */,
+			);
+			path = PresentationUI;
+			sourceTree = "<group>";
+		};
+		428FD9E9286A76EF0062670C /* ControllerUI */ = {
+			isa = PBXGroup;
+			children = (
+				428FD9EA286A77390062670C /* ControllerMainView.swift */,
+			);
+			path = ControllerUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +201,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428FD9F3286A93E80062670C /* PresentorProtocol.swift in Sources */,
+				428FD9F5286AA1BF0062670C /* ControllerProtocol.swift in Sources */,
+				428FD9E7286A73BD0062670C /* ModeSelectionView.swift in Sources */,
 				42862B0228682C6B00F6EFD0 /* ContentView.swift in Sources */,
+				42862B1028682FEA00F6EFD0 /* PeerBrowser.swift in Sources */,
+				42862B162868312200F6EFD0 /* NWParameters.swift in Sources */,
+				428FD9F1286A87750062670C /* PresentorService.swift in Sources */,
 				42862B0028682C6B00F6EFD0 /* BonjourCICApp.swift in Sources */,
+				42862B122868305000F6EFD0 /* PeerListener.swift in Sources */,
+				428FD9EB286A77390062670C /* ControllerMainView.swift in Sources */,
+				428FD9ED286A775F0062670C /* PresentationMainView.swift in Sources */,
+				42862B182868326800F6EFD0 /* ApplicationProtocol.swift in Sources */,
+				428FD9EF286A82C20062670C /* PresentationMainViewModel.swift in Sources */,
+				42862B14286830F200F6EFD0 /* PeerConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +343,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BonjourCIC/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app uses local network to communicate beetween devices";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -304,6 +380,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BonjourCIC/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app uses local network to communicate beetween devices";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
