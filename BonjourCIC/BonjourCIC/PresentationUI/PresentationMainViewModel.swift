@@ -3,8 +3,9 @@ import Foundation
 class PresentationMainViewModel: ObservableObject{
     @Published var passCode: String
     @Published var presentorName: String = "Meeting Room AppleTV"
-    @Published var isConnectionReady = false
-    
+    @Published var isReadyToConnect = false
+    @Published var isConnected = false
+
     init() {
         passCode = PresentationMainViewModel.generatePasscode()
     }
@@ -19,11 +20,16 @@ class PresentationMainViewModel: ObservableObject{
 }
 
 extension PresentationMainViewModel: PresentorProtocol{
+    func onControllerConnected() {
+        DispatchQueue.main.async {
+            self.isConnected = true
+         }
+    }
+    
     func onListenerReady() {
         DispatchQueue.main.async {
-            self.isConnectionReady = true
-          ///  print("Set isConnectionReady to \(isConnectionReady)")
-        }
+            self.isReadyToConnect = true
+         }
     }
     
     

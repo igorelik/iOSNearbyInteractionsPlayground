@@ -10,7 +10,7 @@ struct PresentationMainView: View {
             TextField("Device name", text: $viewModel.presentorName)
                 .padding()
                 .border(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-            if viewModel.isConnectionReady {
+            if viewModel.isReadyToConnect {
                 HStack{
                     Spacer()
                     Text("Pass Code:")
@@ -26,7 +26,9 @@ struct PresentationMainView: View {
                 Text("Start new session")
             }
             .padding()
-            
+            NavigationLink(destination: PresentorCanvasView(), isActive: $viewModel.isConnected) {
+                EmptyView()
+            }
 
             Spacer()
         }

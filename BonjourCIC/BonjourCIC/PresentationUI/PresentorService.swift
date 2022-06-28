@@ -24,6 +24,7 @@ extension PresentorService: PeerConnectionDelegate{
     }
     
     func connectionReady() {
+        connectionDelegate.onControllerConnected()
     }
     
     func connectionFailed() {
