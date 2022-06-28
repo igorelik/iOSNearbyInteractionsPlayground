@@ -19,7 +19,7 @@
 		428FD9E7286A73BD0062670C /* ModeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9E6286A73BD0062670C /* ModeSelectionView.swift */; };
 		428FD9EB286A77390062670C /* ControllerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EA286A77390062670C /* ControllerMainView.swift */; };
 		428FD9ED286A775F0062670C /* PresentationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EC286A775F0062670C /* PresentationMainView.swift */; };
-		428FD9EF286A82C20062670C /* PresentationMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EE286A82C20062670C /* PresentationMainViewModel.swift */; };
+		428FD9EF286A82C20062670C /* PresentorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9EE286A82C20062670C /* PresentorViewModel.swift */; };
 		428FD9F1286A87750062670C /* PresentorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F0286A87750062670C /* PresentorService.swift */; };
 		428FD9F3286A93E80062670C /* PresentorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F2286A93E80062670C /* PresentorProtocol.swift */; };
 		428FD9F5286AA1BF0062670C /* ControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F4286AA1BF0062670C /* ControllerProtocol.swift */; };
@@ -45,7 +45,7 @@
 		428FD9E6286A73BD0062670C /* ModeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectionView.swift; sourceTree = "<group>"; };
 		428FD9EA286A77390062670C /* ControllerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMainView.swift; sourceTree = "<group>"; };
 		428FD9EC286A775F0062670C /* PresentationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationMainView.swift; sourceTree = "<group>"; };
-		428FD9EE286A82C20062670C /* PresentationMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationMainViewModel.swift; sourceTree = "<group>"; };
+		428FD9EE286A82C20062670C /* PresentorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentorViewModel.swift; sourceTree = "<group>"; };
 		428FD9F0286A87750062670C /* PresentorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentorService.swift; sourceTree = "<group>"; };
 		428FD9F2286A93E80062670C /* PresentorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentorProtocol.swift; sourceTree = "<group>"; };
 		428FD9F4286AA1BF0062670C /* ControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerProtocol.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				428FD9EC286A775F0062670C /* PresentationMainView.swift */,
-				428FD9EE286A82C20062670C /* PresentationMainViewModel.swift */,
+				428FD9EE286A82C20062670C /* PresentorViewModel.swift */,
 				428FD9F0286A87750062670C /* PresentorService.swift */,
 				428FD9F2286A93E80062670C /* PresentorProtocol.swift */,
 				428FD9FA286ACB6C0062670C /* PresentorCanvasView.swift */,
@@ -228,7 +228,7 @@
 				428FD9EB286A77390062670C /* ControllerMainView.swift in Sources */,
 				428FD9ED286A775F0062670C /* PresentationMainView.swift in Sources */,
 				42862B182868326800F6EFD0 /* ApplicationProtocol.swift in Sources */,
-				428FD9EF286A82C20062670C /* PresentationMainViewModel.swift in Sources */,
+				428FD9EF286A82C20062670C /* PresentorViewModel.swift in Sources */,
 				428FD9F7286AA8110062670C /* ControllerViewModel.swift in Sources */,
 				42862B14286830F200F6EFD0 /* PeerConnection.swift in Sources */,
 			);

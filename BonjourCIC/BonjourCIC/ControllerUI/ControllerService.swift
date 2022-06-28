@@ -32,6 +32,10 @@ class ControllerService{
                                               delegate: self)
         }
     }
+    
+    func send(text: String){
+        sharedConnection?.sendText(text)
+    }
 
 }
 
@@ -52,6 +56,8 @@ extension ControllerService: PeerBrowserDelegate{
     func displayBrowseError(_ error: NWError) {
         
     }
+    
+    
 }
 
 extension ControllerService: PeerConnectionDelegate{

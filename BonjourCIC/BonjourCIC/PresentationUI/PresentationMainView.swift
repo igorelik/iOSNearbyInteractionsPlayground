@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PresentationMainView: View {
     
-    @StateObject var viewModel = PresentationMainViewModel()
+    @StateObject var viewModel = PresentorViewModel()
     
     var body: some View {
         VStack(alignment: .leading){
@@ -26,7 +26,7 @@ struct PresentationMainView: View {
                 Text("Start new session")
             }
             .padding()
-            NavigationLink(destination: PresentorCanvasView(), isActive: $viewModel.isConnected) {
+            NavigationLink(destination: PresentorCanvasView(viewModel: viewModel), isActive: $viewModel.isConnected) {
                 EmptyView()
             }
 

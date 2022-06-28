@@ -22,7 +22,7 @@ class ControllerViewModel: ObservableObject{
     }
     
     func sendText(){
-        
+        ControllerService.instance.send(text: textToSend)
     }
 }
 

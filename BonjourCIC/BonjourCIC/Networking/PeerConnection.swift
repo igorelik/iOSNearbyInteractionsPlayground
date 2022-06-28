@@ -82,6 +82,20 @@ class PeerConnection {
         // Start the connection establishment.
         connection.start(queue: .main)
     }
+    
+    func sendText(_ text: String) {
+        guard let connection = connection else {
+            return
+        }
+
+        // Create a message object to hold the command type.
+        let message = NWProtocolFramer.Message(messageType: .displayText)
+        let context = NWConnection.ContentContext(identifier: "Text",
+                                                  metadata: [message])
+
+        // Send the application content along with the message.
+        connection.send(content: text.data(using: .unicode), contentContext: context, isComplete: true, completion: .idempotent)
+    }
 
     // TODO: Process app protocol here
     /*

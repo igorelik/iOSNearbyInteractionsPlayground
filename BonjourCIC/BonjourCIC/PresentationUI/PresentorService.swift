@@ -16,6 +16,12 @@ class PresentorService {
             sharedListener = PeerListener(name: name, passcode: passCode, delegate: PresentorService.instance)
         }
     }
+    
+    func handleTextReceived(_ content: Data, _ message: NWProtocolFramer.Message){
+        if let text = String(data: content, encoding: .unicode) {
+            connectionDelegate.onTextReceived(text: text)
+        }
+    }
 }
 
 extension PresentorService: PeerConnectionDelegate{
@@ -32,7 +38,17 @@ extension PresentorService: PeerConnectionDelegate{
     }
     
     func receivedMessage(content: Data?, message: NWProtocolFramer.Message) {
-        
+        guard let content = content else {
+            return
+        }
+        switch message.messageType {
+        case .invalid:
+            print("Received invalid message")
+        case .displayText:
+            handleTextReceived(content, message)
+        default:
+            print("Cannot process \(message.messageType) yet")
+        }
     }
     
     func displayAdvertiseError(_ error: NWError) {
