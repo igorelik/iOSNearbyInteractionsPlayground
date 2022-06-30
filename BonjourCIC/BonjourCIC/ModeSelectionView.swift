@@ -2,14 +2,12 @@ import SwiftUI
 
 struct ModeSelectionView: View {
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading){
-                NavigationLink(destination: PresentationMainView()){
-                    Text(Image(systemName: "appletv")) + Text("Presentation mode")
-                }
-                NavigationLink(destination: ControllerMainView()){
-                    Text(Image(systemName: "iphone")) + Text("Controller mode")
-                }
+        VStack(alignment: .leading){
+            NavigationLink(destination: PresentationMainView()){
+                Text(Image(systemName: "appletv")) + Text("Presentation mode")
+            }
+            NavigationLink(destination: ControllerMainView()){
+                Text(Image(systemName: "iphone")) + Text("Controller mode")
             }
         }
     }

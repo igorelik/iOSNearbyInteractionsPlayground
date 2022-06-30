@@ -22,6 +22,10 @@ class PresentorService {
             connectionDelegate.onTextReceived(text: text)
         }
     }
+    
+    func handleImageReceived(_ content: Data, _ message: NWProtocolFramer.Message){
+        connectionDelegate.onImageReceived(imageData: content)
+    }
 }
 
 extension PresentorService: PeerConnectionDelegate{
@@ -46,6 +50,8 @@ extension PresentorService: PeerConnectionDelegate{
             print("Received invalid message")
         case .displayText:
             handleTextReceived(content, message)
+        case .displayImage:
+            handleImageReceived(content, message)
         default:
             print("Cannot process \(message.messageType) yet")
         }

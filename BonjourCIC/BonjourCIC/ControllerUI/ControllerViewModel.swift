@@ -24,6 +24,13 @@ class ControllerViewModel: ObservableObject{
     func sendText(){
         ControllerService.instance.send(text: textToSend)
     }
+    
+    func sendImage(imageData: Data?){
+        if let data = imageData {
+            ControllerService.instance.send(data: data)
+        }
+        
+    }
 }
 
 extension ControllerViewModel: ControllerProtocol{

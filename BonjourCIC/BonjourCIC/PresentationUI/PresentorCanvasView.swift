@@ -9,6 +9,13 @@ struct PresentorCanvasView: View {
             if viewModel.textReceived != "" {
                 Text("Text: \(viewModel.textReceived)")
             }
+            if viewModel.imageDataReceived != nil{
+                Text("Image received")
+                Image(uiImage: UIImage(data: viewModel.imageDataReceived!)!)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 500)
+            }
             Spacer()
         }
         .navigationTitle(Text("Apple TV"))

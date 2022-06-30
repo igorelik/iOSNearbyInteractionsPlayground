@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class PresentorViewModel: ObservableObject{
     @Published var passCode: String
@@ -7,6 +8,7 @@ class PresentorViewModel: ObservableObject{
     @Published var isConnected = false
     
     @Published var textReceived = ""
+    @Published var imageDataReceived: Data?
 
     init() {
         passCode = PresentorViewModel.generatePasscode()
@@ -22,6 +24,10 @@ class PresentorViewModel: ObservableObject{
 }
 
 extension PresentorViewModel: PresentorProtocol{
+    func onImageReceived(imageData: Data) {
+        imageDataReceived = imageData
+    }
+    
     func onTextReceived(text: String) {
         DispatchQueue.main.async {
             self.textReceived = text

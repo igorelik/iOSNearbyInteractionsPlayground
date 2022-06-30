@@ -115,7 +115,22 @@ class PeerConnection {
         connection.send(content: text.data(using: .unicode), contentContext: context, isComplete: true, completion: .idempotent)
     }
 
-    // TODO: Process app protocol here
+    
+    func sendImage(_ data: Data) {
+        guard let connection = connection else {
+            return
+        }
+
+        // Create a message object to hold the command type.
+        let message = NWProtocolFramer.Message(messageType: .displayImage)
+        let context = NWConnection.ContentContext(identifier: "Image",
+                                                  metadata: [message])
+
+        // Send the application content along with the message.
+        connection.send(content: data, contentContext: context, isComplete: true, completion: .idempotent)
+    }
+    
+   // TODO: Process app protocol here
     /*
     // Handle sending a "select character" message.
     func selectCharacter(_ character: String) {

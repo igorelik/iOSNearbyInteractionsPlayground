@@ -37,6 +37,10 @@ class ControllerService{
         sharedConnection?.sendText(text)
     }
 
+    func send(data: Data){
+        sharedConnection?.sendImage(data)
+    }
+
 }
 
 extension ControllerService: PeerBrowserDelegate{

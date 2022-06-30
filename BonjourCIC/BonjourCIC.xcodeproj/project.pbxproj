@@ -27,6 +27,7 @@
 		428FD9F9286AA8C00062670C /* ControllerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9F8286AA8C00062670C /* ControllerService.swift */; };
 		428FD9FB286ACB6C0062670C /* PresentorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9FA286ACB6C0062670C /* PresentorCanvasView.swift */; };
 		428FD9FD286ACDD30062670C /* ControllerConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9FC286ACDD30062670C /* ControllerConsoleView.swift */; };
+		428FD9FF286D45810062670C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FD9FE286D45810062670C /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		428FD9F8286AA8C00062670C /* ControllerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerService.swift; sourceTree = "<group>"; };
 		428FD9FA286ACB6C0062670C /* PresentorCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentorCanvasView.swift; sourceTree = "<group>"; };
 		428FD9FC286ACDD30062670C /* ControllerConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerConsoleView.swift; sourceTree = "<group>"; };
+		428FD9FE286D45810062670C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				428FD9F8286AA8C00062670C /* ControllerService.swift */,
 				428FD9F4286AA1BF0062670C /* ControllerProtocol.swift */,
 				428FD9FC286ACDD30062670C /* ControllerConsoleView.swift */,
+				428FD9FE286D45810062670C /* ImagePicker.swift */,
 			);
 			path = ControllerUI;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				42862B1028682FEA00F6EFD0 /* PeerBrowser.swift in Sources */,
 				428FD9FB286ACB6C0062670C /* PresentorCanvasView.swift in Sources */,
 				42862B162868312200F6EFD0 /* NWParameters.swift in Sources */,
+				428FD9FF286D45810062670C /* ImagePicker.swift in Sources */,
 				428FD9F1286A87750062670C /* PresentorService.swift in Sources */,
 				428FD9FD286ACDD30062670C /* ControllerConsoleView.swift in Sources */,
 				428FD9F9286AA8C00062670C /* ControllerService.swift in Sources */,
@@ -360,7 +364,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BonjourCIC/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Tha app uses camera to access photos to send to Apple TV";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app uses local network to communicate beetween devices";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Tha app uses camera to access photos to send to Apple TV";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -397,7 +403,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BonjourCIC/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Tha app uses camera to access photos to send to Apple TV";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app uses local network to communicate beetween devices";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Tha app uses camera to access photos to send to Apple TV";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

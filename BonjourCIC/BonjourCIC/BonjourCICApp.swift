@@ -4,7 +4,14 @@ import SwiftUI
 struct BonjourCICApp: App {
     var body: some Scene {
         WindowGroup {
-            ModeSelectionView()
+            NavigationView {
+//                ContentView()
+#if os(tvOS)
+                PresentationMainView()
+#else
+                ModeSelectionView()
+#endif
+            }
         }
     }
 }
