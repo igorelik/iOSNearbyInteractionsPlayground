@@ -7,8 +7,10 @@ struct ControllerMainView: View {
         VStack(alignment: .leading){
             if viewModel.selectedPresenter == nil {
                 Text(Image(systemName: "appletv")) + Text("Available presentation devices")
-                List(selection: $viewModel.selectedPresenter){
-                    ForEach(viewModel.presenters, id: \.self) { presenter in
+                ForEach(viewModel.presenters, id: \.self) { presenter in
+                    Button {
+                        viewModel.selectedPresenter = presenter
+                    } label: {
                         Text(presenter)
                     }
                 }

@@ -58,7 +58,7 @@ class PeerConnection {
 
                 // When the connection is ready, start receiving messages.
                 // TODO: implement receive message when protocol defined
-                //self.receiveNextMessage()
+                self.receiveNextMessage()
 
                 // Notify your delegate that the connection is ready.
                 if let delegate = self.delegate {
@@ -82,6 +82,24 @@ class PeerConnection {
         // Start the connection establishment.
         connection.start(queue: .main)
     }
+    
+    func receiveNextMessage() {
+        guard let connection = connection else {
+            return
+        }
+
+        connection.receiveMessage { (content, context, isComplete, error) in
+            // Extract your message type from the received context.
+            if let message = context?.protocolMetadata(definition: ApplicationProtocol.definition) as? NWProtocolFramer.Message {
+                self.delegate?.receivedMessage(content: content, message: message)
+            }
+            if error == nil {
+                // Continue to receive more messages until you receive and error.
+                self.receiveNextMessage()
+            }
+        }
+    }
+
     
     func sendText(_ text: String) {
         guard let connection = connection else {
