@@ -5,6 +5,15 @@ class PresentorService {
     static let instance = PresentorService()
     var connectionDelegate: PresentorProtocol!
     
+    func resetPresentorListener(name: String, passCode: String, connectionDelegate: PresentorProtocol){
+        if let listener = sharedListener{
+            listener.listener?.cancel()
+        }
+        sharedListener = nil
+        sharedConnection?.cancel()
+        sharedConnection = nil
+        startPresentorListener(name: name, passCode: passCode, connectionDelegate: connectionDelegate)
+    }
     
     func startPresentorListener(name: String, passCode: String, connectionDelegate: PresentorProtocol){
         self.connectionDelegate = connectionDelegate
@@ -38,7 +47,7 @@ extension PresentorService: PeerConnectionDelegate{
     }
     
     func connectionFailed() {
-        
+        connectionDelegate.onConnectionFailed()
     }
     
     func receivedMessage(content: Data?, message: NWProtocolFramer.Message) {

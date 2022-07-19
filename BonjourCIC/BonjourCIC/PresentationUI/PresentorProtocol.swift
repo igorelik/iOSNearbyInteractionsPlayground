@@ -4,4 +4,5 @@ protocol PresentorProtocol {
     func onControllerConnected()
     func onTextReceived(text: String)
     func onImageReceived(imageData: Data)
+    func onConnectionFailed()
 }

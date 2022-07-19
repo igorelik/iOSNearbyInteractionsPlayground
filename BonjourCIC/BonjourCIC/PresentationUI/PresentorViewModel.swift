@@ -6,7 +6,8 @@ class PresentorViewModel: ObservableObject{
     @Published var presentorName: String = "Meeting Room AppleTV"
     @Published var isReadyToConnect = false
     @Published var isConnected = false
-    
+    @Published var isControllerConnected = false
+
     @Published var textReceived = ""
     @Published var imageDataReceived: Data?
 
@@ -15,7 +16,7 @@ class PresentorViewModel: ObservableObject{
     }
     
     func startNewSession(){
-       PresentorService.instance.startPresentorListener(name: presentorName, passCode: passCode, connectionDelegate: self)
+        PresentorService.instance.startPresentorListener(name: presentorName, passCode: passCode, connectionDelegate: self)
     }
     
     static func generatePasscode() -> String {
@@ -38,6 +39,7 @@ extension PresentorViewModel: PresentorProtocol{
     func onControllerConnected() {
         DispatchQueue.main.async {
             self.isConnected = true
+            self.isControllerConnected = true
          }
     }
     
@@ -47,5 +49,11 @@ extension PresentorViewModel: PresentorProtocol{
          }
     }
     
+    func onConnectionFailed() {
+        DispatchQueue.main.async {
+            self.isControllerConnected = false
+            PresentorService.instance.resetPresentorListener(name: self.presentorName, passCode: self.passCode, connectionDelegate: self)
+         }
+    }
     
 }

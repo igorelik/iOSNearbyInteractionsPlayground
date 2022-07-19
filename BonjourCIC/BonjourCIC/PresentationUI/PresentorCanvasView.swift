@@ -5,6 +5,8 @@ struct PresentorCanvasView: View {
     
     var body: some View {
         VStack(alignment: .leading){
+            Text("Passcode: \(viewModel.passCode)")
+            Text("Controller \(viewModel.isControllerConnected ? "connected" : "disconnected")")
             Text("Ready to receive data")
             if viewModel.textReceived != "" {
                 Text("Text: \(viewModel.textReceived)")
