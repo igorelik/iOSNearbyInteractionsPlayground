@@ -5,6 +5,7 @@ class ControllerService{
     static let instance = ControllerService()
     var availablePresentors = [NWBrowser.Result]()
     var controllerDelegate: ControllerProtocol!
+    var joinCompletionHandler: ((Bool) -> Void)? = nil
     
     func startPolling(controllerDelegate: ControllerProtocol){
         self.controllerDelegate = controllerDelegate
@@ -24,7 +25,10 @@ class ControllerService{
         return nil
     }
     
-    func join(to presentor:String, with passcode: String) {
+    func join(to presentor:String, with passcode: String, completion: ((Bool) -> Void)? = nil) {
+        if completion != nil {
+            joinCompletionHandler = completion
+        }
         if let result = getBrowserResult(by: presentor){
             sharedConnection = PeerConnection(endpoint: result.endpoint,
                                               interface: result.interfaces.first,
@@ -36,9 +40,19 @@ class ControllerService{
     func send(text: String){
         sharedConnection?.sendText(text)
     }
+    
+    func send(text: String) async -> Bool {
+        await sharedConnection!.sendText(text)
+    }
 
     func send(data: Data){
         sharedConnection?.sendImage(data)
+    }
+    
+    func disconnect(){
+        sharedConnection?.sendDisconnect()
+       // sharedConnection?.cancel()
+       // sharedConnection = nil
     }
 
 }
@@ -71,10 +85,11 @@ extension ControllerService: PeerConnectionDelegate{
     
     func connectionReady() {
         controllerDelegate.connectionReady()
+        joinCompletionHandler?(true)
     }
     
     func connectionFailed() {
-        
+        joinCompletionHandler?(false)
     }
     
     func receivedMessage(content: Data?, message: NWProtocolFramer.Message) {

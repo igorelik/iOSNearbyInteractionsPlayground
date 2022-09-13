@@ -6,6 +6,8 @@ struct ControllerConsoleView: View {
     @State private var inputImage: UIImage?
     @State private var image = UIImage()
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Connected to ") + Text(viewModel.selectedPresenter!).bold()
@@ -40,6 +42,12 @@ struct ControllerConsoleView: View {
                 Text("Send an image")
             }
             #endif
+            Button {
+                viewModel.disconnect()
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Disconnect")
+            }
           Spacer()
         }
         .onChange(of: inputImage) { _ in loadImage() }

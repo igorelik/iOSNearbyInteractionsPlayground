@@ -16,6 +16,28 @@ class ControllerViewModel: ObservableObject{
         ControllerService.instance.join(to: selectedPresenter!, with: passCode)
     }
     
+    func connectAsync() async -> Bool {
+        await withCheckedContinuation{ continuation in
+            ControllerService.instance.join(to: selectedPresenter!, with: passCode){ isSuccess in
+                continuation.resume(returning: isSuccess)
+            }
+        }
+    }
+    
+    func sendMessageAsSessionAsync( message: String) async -> Bool {
+        let isConnected = await connectAsync()
+        if !isConnected {
+            print("sendMessageAsSessionAsync: connect failed")
+            return false
+        }
+        if !(await ControllerService.instance.send(text: message)){
+            print("sendMessageAsSessionAsync: send(\(message) failed")
+            return false
+        }
+        disconnect()
+        return true
+    }
+    
     func reset(){
         selectedPresenter = nil
         passCode = ""
@@ -29,13 +51,16 @@ class ControllerViewModel: ObservableObject{
         if let data = imageData {
             ControllerService.instance.send(data: data)
         }
-        
+    }
+    
+    func disconnect(){
+        ControllerService.instance.disconnect()
     }
 }
 
 extension ControllerViewModel: ControllerProtocol{
     func connectionReady() {
-        isConnected = true
+   //     isConnected = true
     }
     
     func updatePresenters(presenters: [String]) {

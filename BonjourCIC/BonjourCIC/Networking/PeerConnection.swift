@@ -57,7 +57,6 @@ class PeerConnection {
                 print("\(connection) established")
 
                 // When the connection is ready, start receiving messages.
-                // TODO: implement receive message when protocol defined
                 self.receiveNextMessage()
 
                 // Notify your delegate that the connection is ready.
@@ -68,17 +67,22 @@ class PeerConnection {
                 print("\(connection) failed with \(error)")
 
                 // Cancel the connection upon a failure.
-                connection.cancel()
+                connection.forceCancel() // cancel()
 
                 // Notify your delegate that the connection failed.
                 if let delegate = self.delegate {
                     delegate.connectionFailed()
                 }
             default:
+                print("\(connection) new state is \(newState)")
                 break
             }
         }
 
+        connection.pathUpdateHandler = { newPath in
+            print("path update: \(newPath)")
+        }
+        
         // Start the connection establishment.
         connection.start(queue: .main)
     }
@@ -101,7 +105,7 @@ class PeerConnection {
     }
 
     
-    func sendText(_ text: String) {
+    func sendText(_ text: String, completion: ((Bool) -> Void)? = nil) {
         guard let connection = connection else {
             return
         }
@@ -112,9 +116,29 @@ class PeerConnection {
                                                   metadata: [message])
 
         // Send the application content along with the message.
-        connection.send(content: text.data(using: .unicode), contentContext: context, isComplete: true, completion: .idempotent)
+        if completion == nil{
+            connection.send(content: text.data(using: .unicode), contentContext: context, isComplete: true, completion: .idempotent)
+        }
+        else{
+            connection.send(content: text.data(using: .unicode), contentContext: context, isComplete: true, completion: .contentProcessed({ error in
+                if let error = error {
+                    print("send text <\(text)> error: \(error)")
+                    completion!(false)
+                    return
+                }
+                completion!(true)
+            }))
+
+        }
     }
 
+    func sendText(_ text: String) async -> Bool {
+        await withCheckedContinuation{ continuation in
+            sendText(text){ isSuccess in
+                continuation.resume(returning: isSuccess)
+            }
+        }
+    }
     
     func sendImage(_ data: Data) {
         guard let connection = connection else {
@@ -128,6 +152,27 @@ class PeerConnection {
 
         // Send the application content along with the message.
         connection.send(content: data, contentContext: context, isComplete: true, completion: .idempotent)
+    }
+    
+    func sendDisconnect(){
+        guard let connection = connection else {
+            return
+        }
+
+        // Create a message object to hold the command type.
+        let message = NWProtocolFramer.Message(messageType: .closeConnection)
+        let context = NWConnection.ContentContext(identifier: "Disconnect",
+                                                  metadata: [message])
+
+        // Send the application content along with the message.
+        connection.send(content: "".data(using: .unicode), contentContext: context, isComplete: true, completion: .contentProcessed({ error in
+            if let error = error{
+                print("Disconnect error: \(error)")
+            }
+            print("Disconnected.....")
+            self.connection?.forceCancel()
+        }))
+
     }
     
    // TODO: Process app protocol here

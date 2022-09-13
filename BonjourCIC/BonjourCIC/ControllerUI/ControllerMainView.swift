@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ControllerMainView: View {
     @StateObject var viewModel = ControllerViewModel()
+    @State var text2Send = "Send and disconnect"
     
     var body: some View {
         VStack(alignment: .leading){
@@ -26,6 +27,19 @@ struct ControllerMainView: View {
                     viewModel.connect()
                 } label: {
                     Text("Connect")
+                }
+                .padding(.vertical)
+                Text("Text to send:")
+                    .padding(.top)
+                TextField("Text", text: $text2Send)
+                    .padding()
+                    .border(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                Button {
+                    Task {
+                        await viewModel.sendMessageAsSessionAsync(message: text2Send )
+                    }
+                } label: {
+                    Text("Send text and disconnect")
                 }
                 .padding(.vertical)
                 Button {

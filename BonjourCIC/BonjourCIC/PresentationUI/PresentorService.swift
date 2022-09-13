@@ -4,11 +4,20 @@ import Network
 class PresentorService {
     static let instance = PresentorService()
     var connectionDelegate: PresentorProtocol!
+    var latestConnectionName = ""
+    var latestConnectionPassCode = ""
+    
+    func resetPresentorListener(){
+        assert(connectionDelegate != nil)
+        resetPresentorListener(name: latestConnectionName, passCode: latestConnectionPassCode, connectionDelegate: connectionDelegate)
+    }
     
     func resetPresentorListener(name: String, passCode: String, connectionDelegate: PresentorProtocol){
         if let listener = sharedListener{
             listener.listener?.cancel()
         }
+        latestConnectionName = name
+        latestConnectionPassCode = passCode
         sharedListener = nil
         sharedConnection?.cancel()
         sharedConnection = nil
@@ -16,6 +25,8 @@ class PresentorService {
     }
     
     func startPresentorListener(name: String, passCode: String, connectionDelegate: PresentorProtocol){
+        latestConnectionName = name
+        latestConnectionPassCode = passCode
         self.connectionDelegate = connectionDelegate
         if let listener = sharedListener {
             // If your app is already listening, just update the name.
@@ -51,6 +62,7 @@ extension PresentorService: PeerConnectionDelegate{
     }
     
     func receivedMessage(content: Data?, message: NWProtocolFramer.Message) {
+        print("Received message: \(message.messageType)")
         guard let content = content else {
             return
         }
@@ -61,6 +73,9 @@ extension PresentorService: PeerConnectionDelegate{
             handleTextReceived(content, message)
         case .displayImage:
             handleImageReceived(content, message)
+        case .closeConnection:
+            connectionDelegate.onConnectionFailed()
+            resetPresentorListener()
         default:
             print("Cannot process \(message.messageType) yet")
         }
@@ -74,7 +89,7 @@ extension PresentorService: PeerConnectionDelegate{
 extension PresentorService: PeerBrowserDelegate {
     func refreshResults(results: Set<NWBrowser.Result>) {
         results.forEach { res in
-            print("\(res.endpoint.interface?.name)")
+            print("\(String(describing: res.endpoint.interface?.name))")
         }
     }
     

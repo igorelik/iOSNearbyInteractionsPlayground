@@ -8,6 +8,7 @@ class ApplicationProtocol: NWProtocolFramerImplementation {
         case displayImage = 2
         case playMusic = 3
         case startTimer = 4
+        case closeConnection = 5
     }
 
     static var label: String { "BonjourCIC" }
